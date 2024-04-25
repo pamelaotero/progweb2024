@@ -66,3 +66,12 @@ Cabeçalhos: do H1 ao H6
 COnteúdo pré-formatado:
 
 <pre> teste        aaa - permite que esses espaços sejam visualizados no browser</pre>
+
+
+
+--- FORMULÁRIOS
+
+POST - os dados do formulário serão enviados através do cabeçalho do protocolo HTTP
+
+GET - os dados do formulário serão enviados através da URL da requisição
+
