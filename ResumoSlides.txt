@@ -1,0 +1,68 @@
+Início: 22/04/2024
+
+Programação WEB
+
+SLIDE 1 - Introdução
+
+HTML - (HyperText Markup Language) -  Linguagem de marcação, conteúdo e estrutura da página
+CSS - Cascading Stytle Sheets - aplicar estilo específico, ou formatação.
+Javascript - é possível criar página mais dinâmicas. INTERPRETADA, DE ALTO NÍVEL, TIPAGEM DINÂMICA.
+Aceita os paradigmas funcional e orientação a objetos (baseada em proótipos)
+ECMAScript - nome oficial.
+
+As 3 camadas:
+- CONTEÚDO - HTML
+- ESTILO - CSS
+- COMPORTAMENTO - Javascript
+
+CAMADA DO CLIENTE - FRONT END -> RECEBE <- REQUISIÇÕES dos Usuários
+PROCESSA AS INFORMAÇÕES E ENVIA PARA O SERVIDOR(back-end processa), recebe o conteúdo e então apresenta para o usuário.
+
+
+
+⚡ A engine Node.js
+
+O Node.js é um interpretador de código js baseado na egine v8 da Google e na bilbioteca libuv do C++;
+Código aberto, assíncrono.
+
+-> Comunidade ativa - NPM (Node package manager) é o gerenciador de pacotes do Node.js e também é o maior repositório de softwares do mundo.
+
+-> Ele é rápido - o V8 compila o JS e executa usando código de máquina.
+
+-> Mesma linguagem front-end e back-end.
+
+⚙️ Arquitetura Cliente-SERVIDOR
+
+3 camadas:
+
+CLIENT  ---- HTTP CLIENT REQUEST -> PROCESSAMENTO ---> DATA STORAGE TIER (camada de armazenamento de dados)
+
+O framrwork Express: é um conjunto de biliotecas que visam facilitar o desenvolvimento de sistemas Web completos.
+
+
+-----------
+
+
+SLIDE 2 - HTML
+
+HTML  é baseado no conceito de hipertexto, é uma coleção de páginas conectadas através de Links que auxiliam o leito a navegar entre as diferentes páginas.
+
+<!-- Este é um comentário em HTML -->
+
+HEAD: informações sobre o documento html5, como codificação de caracteres UTF-8 e o título da página.
+BODY: contéudo da página
+
+
+<Title> Titulo da página Web </Title>
+
+HTTP: é o protocolo normalmente usado para transportar HTML entre o servidor e o browser.
+
+Elementos VOID:
+
+São elementos que não podem ter outras tasgs como antecedentes como por exemplo <br>
+
+Cabeçalhos: do H1 ao H6
+
+COnteúdo pré-formatado:
+
+<pre> teste        aaa - permite que esses espaços sejam visualizados no browser</pre>
