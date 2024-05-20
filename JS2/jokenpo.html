@@ -1,36 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="PT-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>JS2 - Jogo Jokenpô</title>
 </head>
+
 <body>
+
  <script>
-
-  function getNumberRamdon() {
-    return Math.floor(Math.random() * 3) + 1;
-  }
-
-  function getTypePlay(typePlaybyNumber) {
-    switch (typePlaybyNumber) {
-      case 1: return "Papel";
-      case 2: return "Pedra";
-      case 3: return "Tesoura"
+    function getNumberRandom() {
+      return Math.floor(Math.random() * 3) + 1;
     }
-  }
 
-  console.log("Escolha sua jogada:");
-  console.log("1 - Papel");
-  console.log("2 - Pedra");
-  console.log("3 - Tesoura");
+    function getTypePlay(typePlayByNumber) {
+      switch (typePlayByNumber) {
+        case 1: return optionsPlay.PAPEL;
+        case 2: return optionsPlay.PEDRA;
+        case 3: return optionsPlay.TESOURA;
+      }
+    }
 
+    const optionsPlay = {
+      PEDRA: "Pedra",
+      PAPEL: "Papel",
+      TESOURA: "Tesoura"
+    };
 
-  const numberRandom = getNumberRamdon();
-  const typePlayByName = getTypePlay(numberRandom)
+    function getWinner(typeUser, typeComputer) {
+      if (
+        (typeUser === optionsPlay.PEDRA && typeComputer === optionsPlay.TESOURA) ||
+        (typeUser === optionsPlay.PAPEL && typeComputer === optionsPlay.PEDRA) ||
+        (typeUser === optionsPlay.TESOURA && typeComputer === optionsPlay.PAPEL)
+      ) {
+        console.log("Você ganhou!");
+        return true;
+      } else if (typeUser === typeComputer) {
+        console.log("Empate!");
+        return false;
+      } else {
+        console.log("Você perdeu!");
+        return false;
+      }
+    }
 
-  console.log("O computador jogou", typePlayByName)
+    let score = 0;
+    let continueGame = true;
 
+    while (continueGame) {
+      console.log("Escolha sua jogada:");
+      console.log("1 - Papel");
+      console.log("2 - Pedra");
+      console.log("3 - Tesoura");
+
+      let userPlay = parseInt(prompt(""));
+
+      if (userPlay < 1 || userPlay > 3 || isNaN(userPlay)) {
+        console.log("Jogada inválida. Fim de jogo.");
+        continueGame = false;
+      } else {
+          const numberRandom = getNumberRandom();
+          const typePlayByName = getTypePlay(numberRandom);
+
+          console.log("O computador jogou", typePlayByName);
+
+          const userPlayType = getTypePlay(userPlay);
+          const result = getWinner(userPlayType, typePlayByName);
+
+          if (result) {
+            score++;
+          } else {
+            continueGame = false;
+          }
+      }
+    }
+
+    console.log("Pontuação final:", score);
  </script>
 </body>
 </html>
