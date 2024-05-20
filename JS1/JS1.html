@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas de Multiplicação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 20px;
+            background-color: whote;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 10px;
+            width: 200px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border: 1px solid black;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: white;
+            font-weight: bold;
+        }
+
+        caption {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+
+            for (let i = 1; i <= 10; i++) {
+                const table = document.createElement('table');
+
+                const thead = document.createElement('thead');
+                const tbody = document.createElement('tbody');
+
+                const headerRow = document.createElement('tr');
+                const headerTh1 = document.createElement('th');
+                const headerTh2 = document.createElement('th');
+                headerTh1.textContent = `Produtos de ${i}`;
+                headerRow.appendChild(headerTh1);
+                headerRow.appendChild(headerTh2);
+                thead.appendChild(headerRow);
+                table.appendChild(thead);
+
+                for (let j = 1; j <= 10; j++) {
+                    const row = document.createElement('tr');
+                    const tdMultiplication = document.createElement('td');
+                    const tdResult = document.createElement('td');
+                    tdMultiplication.textContent = `${i} x ${j}`;
+                    tdResult.textContent = i * j;
+                    row.appendChild(tdMultiplication);
+                    row.appendChild(tdResult);
+                    tbody.appendChild(row);
+                }
+
+                table.appendChild(tbody);
+                body.appendChild(table);
+            }
+        });
+    </script>
+</body>
+</html>
