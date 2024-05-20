@@ -75,3 +75,20 @@ POST - os dados do formulário serão enviados através do cabeçalho do protoco
 
 GET - os dados do formulário serão enviados através da URL da requisição
 
+
+- OBJETOS:
+
+é uma coleção dinâmica de chaves e valores para quaisquer tipos de dados
+
+let ufam = {
+  nome: "Univerdade Federal do Amazonas",
+  fundacao: 1909,
+  ativa: true,
+}
+
+document.writeln(ufam.nome);
+
+### Para apagar um objeto:
+
+delete:
+ex: delete ufam.ativa

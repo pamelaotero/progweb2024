@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+ <script>
+
+  function getNumberRamdon() {
+    return Math.floor(Math.random() * 3) + 1;
+  }
+
+  function getTypePlay(typePlaybyNumber) {
+    switch (typePlaybyNumber) {
+      case 1: return "Papel";
+      case 2: return "Pedra";
+      case 3: return "Tesoura"
+    }
+  }
+
+  console.log("Escolha sua jogada:");
+  console.log("1 - Papel");
+  console.log("2 - Pedra");
+  console.log("3 - Tesoura");
+
+
+  const numberRandom = getNumberRamdon();
+  const typePlayByName = getTypePlay(numberRandom)
+
+  console.log("O computador jogou", typePlayByName)
+
+ </script>
+</body>
+</html>
