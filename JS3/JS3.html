@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class IntegerSet {
+  // NOTE: cada objeto da classe pode armazenar interior [0, MAX]
+
+  constructor(valueMax) {
+    this.valueMax = valueMax;
+    this.set = new Array(valueMax + 1).fill(false);
+  }
+
+  insertetItens(item) {
+    this.set[item] = true;
+  }
+
+  removeItens(item) {
+    this.set[item] = false;
+  }
+
+  unionItens(item) {
+    const newSet = new IntegerSet(this.valueMax);
+    for (let i = 0; i <= this.valueMax; i++) {
+      newSet.set[i] = this.set[i] || item.set[i];
+    }
+    return newSet;
+  }
+
+  intersectionItens(item) {
+    const newSet = new IntegerSet(this.valueMax);
+    for (let i = 0; i <= this.valueMax; i++) {
+      newSet.set[i] = this.set[i] && item.set[i];
+    }
+  }
+
+  differenceItens(item) {
+    const newSet = new IntegerSet(this.valueMax);
+    for (let i = 0; i <= this.valueMax; i++) {
+      newSet.set[i] = this.set[i] && !item.set[i];
+    }
+    return newSet;
+  }
+
+  convertToString() {
+    const item = [];
+    for (let i = 0; i <= this.valueMax; i++) {
+      if (this.set[i]) {
+        item.push(i);
+      }
+    }
+    return `{ ${item.join(", ")} }`;
+  }
+}
+
+  function testIntegerSet() {
+    const set1 = new IntegerSet(10);
+    const set2 = new IntegerSet(10);
+    set1.insertetItens(1);
+    set1.insertetItens(3);
+    set1.insertetItens(5);
+    set2.insertetItens(3);
+    set2.insertetItens(4);
+    set2.insertetItens(5);
+    set2.insertetItens(7);
+    console.log("SET1:", set1.convertToString());
+    console.log("SET2:", set2.convertToString());
+    const unionSet = set1.unionItens(set2);
+    console.log("SET1 U SET2 = ", unionSet.convertToString());
+    const intersectionSet = set1.intersectionItens(set2);
+    console.log("SE1 INTERSEÇÃO SET2 = ", intersectionSet?.convertToString());
+    const differenceSet = set1.differenceItens(set2);
+    console.log("SET1 - SE2 = ", differenceSet.convertToString());
+    set1.removeItens(3);
+    console.log("SET1 depois de remover 3 = ", set1.convertToString());
+  }
+
+  testIntegerSet();
+
+  </script>
+</body>
+</html>
