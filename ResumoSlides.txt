@@ -92,3 +92,20 @@ document.writeln(ufam.nome);
 
 delete:
 ex: delete ufam.ativa
+
+
+- Trabalhando com StyleSheets:
+
+A forma mais fácil de usar um objeto CSSStyleDeclaration é atrav´s do acesso direto às propriedades CSS
+
+<div id="icomp">Instituto de Computação</div>
+<button id="pressme">Mudar estilo</button>
+
+
+let icomp = document.getElementById("icomp");
+let pressme = document.getElementById("pressme");
+
+botao.onClick = function() {
+  icomp.style.fontSize = "32px";
+  pressme.style.color = "red";
+}
