@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS4</title>
+</head>
+<body>
+  <script>
+    function getCircleArea(ray) {
+      return Math.PI * Math.pow(ray, 2)
+    }
+
+   function getCircumference(ray) {
+    return 2 * Math.PI * ray;
+   }
+
+   function getRay() {
+    return parseFloat(document.forms["myForm"]["ray"].value);
+   }
+
+
+   function setAreaInInput(area) {
+    // NOTE: acessa o value do input e arrendoda em duas casass decimais
+    document.forms["myForm"]["circleArea"].value = area.toFixed(2);
+   }
+
+   function setCircumference(circumference) {
+    document.forms["myForm"]["circumference"].value = circumference.toFixed(2);
+   }
+
+   function calculateProsByCircle(event) {
+    event.preventDefault(); //NOTE: essa função impede o envio do formulário
+
+    // NOTE: pega o valor do raio
+    const ray = getRay();
+    const area = getCircleArea(ray);
+    const circumference = getCircumference(ray);
+
+    setAreaInInput(area);
+    setCircumference(circumference);
+   }
+
+  </script>
+
+  <Form name="myForm" onSubmit="calculateProsByCircle(event)">
+    <label>Informe o raio</label>
+    <input name="ray" type="number" step="0.01" required/>
+
+    <button type="submit">OK</button>
+    <br><br>
+
+    <label>Área do círculo</label>
+    <input name="circleArea" type="number" readonly/>
+    <br><br>
+    <label>Circunferência</label>
+    <input name="circumference" type="number" readonly/>
+  </Form>
+</body>
+</html>
