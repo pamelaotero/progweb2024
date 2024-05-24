@@ -7,55 +7,55 @@
 </head>
 <body>
   <script>
-    class IntegerSet {
+  class IntegerSet {
   // NOTE: cada objeto da classe pode armazenar interior [0, MAX]
 
-  constructor(valueMax) {
-    this.valueMax = valueMax;
-    this.set = new Array(valueMax + 1).fill(false);
-  }
-
-  insertetItens(item) {
-    this.set[item] = true;
-  }
-
-  removeItens(item) {
-    this.set[item] = false;
-  }
-
-  unionItens(item) {
-    const newSet = new IntegerSet(this.valueMax);
-    for (let i = 0; i <= this.valueMax; i++) {
-      newSet.set[i] = this.set[i] || item.set[i];
+    constructor(valueMax) {
+      this.valueMax = valueMax;
+      this.set = new Array(valueMax + 1).fill(false);
     }
-    return newSet;
-  }
 
-  intersectionItens(item) {
-    const newSet = new IntegerSet(this.valueMax);
-    for (let i = 0; i <= this.valueMax; i++) {
-      newSet.set[i] = this.set[i] && item.set[i];
+    insertetItens(item) {
+      this.set[item] = true;
     }
-  }
 
-  differenceItens(item) {
-    const newSet = new IntegerSet(this.valueMax);
-    for (let i = 0; i <= this.valueMax; i++) {
-      newSet.set[i] = this.set[i] && !item.set[i];
+    removeItens(item) {
+      this.set[item] = false;
     }
-    return newSet;
-  }
 
-  convertToString() {
-    const item = [];
-    for (let i = 0; i <= this.valueMax; i++) {
-      if (this.set[i]) {
-        item.push(i);
+    unionItens(item) {
+      const newSet = new IntegerSet(this.valueMax);
+      for (let i = 0; i <= this.valueMax; i++) {
+        newSet.set[i] = this.set[i] || item.set[i];
+      }
+      return newSet;
+    }
+
+    intersectionItens(item) {
+      const newSet = new IntegerSet(this.valueMax);
+      for (let i = 0; i <= this.valueMax; i++) {
+        newSet.set[i] = this.set[i] && item.set[i];
       }
     }
-    return `{ ${item.join(", ")} }`;
+
+    differenceItens(item) {
+      const newSet = new IntegerSet(this.valueMax);
+      for (let i = 0; i <= this.valueMax; i++) {
+        newSet.set[i] = this.set[i] && !item.set[i];
+      }
+      return newSet;
+    }
+
+    convertToString() {
+      const item = [];
+      for (let i = 0; i <= this.valueMax; i++) {
+        if (this.set[i]) {
+          item.push(i);
+        }
+      }
+      return `{ ${item.join(", ")} }`;
+    }
   }
-}
 
   function testIntegerSet() {
     const set1 = new IntegerSet(10);
