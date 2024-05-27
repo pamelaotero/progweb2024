@@ -3,9 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JS5 - Exercício</title>
+  <title>JS5 - Exercício do gráfico</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 <body>
+  <h1>Um gráfico de barras</h1>
+  <Form id="myFormBar" onsubmit="renderGraph(event)">
+    <label>Informe a altura das barras</label>
+    <input name="alt1" type="number" />
+    <input name="alt2" type="number" />
+    <input name="alt3" type="number" />
+    <input name="alt4" type="number" />
+    <input name="alt5" type="number" />
 
+    <br/><br/>
+
+    <label>Informe a largura das barras</label>
+    <input name="widthBar" type="number" />
+    <button>Desenhar gráfico JS5</button>
+  </Form>
+
+  <section>
+    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+  </section>
+
+  <script>
+
+    function getInputByHeight(id) {
+      return document.forms["myFormBar"][id].value
+    }
+
+    function renderGraph() {
+      event.preventDefault();
+
+      const alt1 = getInputByHeight("alt1")
+      const alt2 = getInputByHeight("alt2")
+      const alt3 = getInputByHeight("alt3")
+      const alt4 = getInputByHeight("alt4")
+      const alt5 = getInputByHeight("alt5");
+      const widthBar = getInputByHeight("widthBar");
+
+      yValues = ["alt1", "alt2", "alt3", "alt4", "alt5"]
+      const yList = [alt1, alt2, alt3, alt4, alt5];
+      const barColors = ["red", "green", "blue", "orange", "brown"];
+
+      new Chart("myChart", {
+        type: "bar",
+        data: {
+          labels: yValues,
+          datasets: [{
+            backgroundColor: barColors,
+            data: yList,
+            barThickness: widthBar ? parseInt(widthBar) : undefined
+          }]
+        },
+        options: {
+          legend: {display: false},
+          title: {
+            display: true,
+            text: "Gráfico de Barras exercício JS5"
+          }
+        }
+      });
+    }
+  </script>
 </body>
 </html>
