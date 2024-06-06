@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 6 - Move</title>
+    <style>
+      .trail {
+        width: 10px;
+        height: 10px;
+        background-color: black;
+        border-radius: 50%;
+        position: absolute;
+        pointer-events: none;
+      }
+    </style>
+</head>
+<body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const maxPoints = 8;
+        const points = [];
+
+        document.addEventListener('mousemove', (event) => {
+          const point = document.createElement('div');
+          point.classList.add('trail');
+          point.style.left = `${event.clientX}px`;
+          point.style.top = `${event.clientY}px`;
+
+          document.body.appendChild(point);
+          points.push(point);
+
+          if (points.length > maxPoints) {
+            const oldPoint = points.shift();
+            document.body.removeChild(oldPoint);
+          }
+        });
+    });
+  </script>
+</body>
+</html>
