@@ -109,3 +109,34 @@ botao.onClick = function() {
   icomp.style.fontSize = "32px";
   pressme.style.color = "red";
 }
+
+Aula sobre typescript:
+
+tsc - é o transpilador do typescript
+
+comando:
+> yarn add typescript --dev
+
+## comando para inicializar o tsc
+> yarn tsc --init // cria o arquivo ts config
+> yarn tsc - vai para pasta dist
+
+🌟RESUMO:
+
+instalar o node
+instalr o typescript:
+> npm install -g typescript
+
+transpilar:
+> tsc main.ts
+
+executar o javscript:
+
+> node main.js // LEMBRE DE ENTRAR NA PASTA
+
+PRONTO!
+
+🌟 EXECUÇÃO DO CÓDIGO NO BROWSER:
+
+* os browsers nao suportam codigo typescript, entao o código precisa ser transpilado para JS.
+* no HTML importe o codigo JS dentro da tag BODY
