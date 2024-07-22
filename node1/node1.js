@@ -1,4 +1,9 @@
 const http = require("http");
+require("dotenv").config();
+console.log("process.env.PORT", process.env.PORT);
+
+const PORT = process.env.PORT || 8080;
+
 const server = http.createServer(function (req, res) {
   res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" });
   const fs = require("fs");
@@ -27,10 +32,6 @@ const server = http.createServer(function (req, res) {
         </body>
       </html>
     `);
-
-    // arquivos.forEach((arquivo) => {
-    //   console.log(arquivo);
-    // });
     res.end();
   });
 
@@ -46,19 +47,4 @@ const server = http.createServer(function (req, res) {
   //   </html>
   // `);
 });
-server.listen(3333);
-
-// const readline = require("readline");
-
-// const rl = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout,
-// });
-
-// rl.question("Digite o diretório: ", (answer) => {
-//   console.log(`Você digitou: ${answer}`);
-
-//   rl.close();
-
-//   return answer;
-// });
+server.listen(PORT);
