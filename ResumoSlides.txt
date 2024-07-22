@@ -140,3 +140,33 @@ PRONTO!
 
 * os browsers nao suportam codigo typescript, entao o código precisa ser transpilado para JS.
 * no HTML importe o codigo JS dentro da tag BODY
+
+✅ NODE.js
+
+Arquitetura cliente <> servidor
+
+Executando um codigo javscript usando node.js
+
+> node index.js
+
+Node.js é um interpretador javscript leve, cujos módulos embarcados provem apenas funcionalidades básicas para o programador.
+
+Mesmo assim é necessário importar via requite ou importados
+http: é um modulo do node.js
+Os módulos podem ser importados através do comando require
+
+## Módulo FS
+
+* fornece operações I/O que permmitem acesso e interação com o sistema de arquivos
+
+// PRIMEIRO PASSO NO DESENVOLVIMENTO de uma aplicação node.js é a criação de um arquivo chamado package.json
+
+a função desse arquivo e armazenar vários metadados sobre a aplicaçãp, incluindo suas dependencias
+
+CRIAR UM arquivo package.json
+
+> npm init ou npm init -y // que criará o arquivo com valores iniciais
+
+### ✅ Incluindo o framework express no projeto
+> npm install express
+

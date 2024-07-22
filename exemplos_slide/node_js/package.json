@@ -1,0 +1,9 @@
+{
+  "name": "hello-world",
+  "author": "Pamela Otéro",
+  "private": true,
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
